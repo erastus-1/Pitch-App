@@ -78,13 +78,14 @@ def pitch():
         description = pitch_form.description.data
         category = pitch_form.category.data
         user_id = current_user._get_current_object().id
+
+
         new_pitch = Pitch(title=title, description=description, category=category, user_id=user_id)
         new_pitch.save_pitch()
-
         return redirect(url_for('main.index'))
 
-    title = 'The Number One Pitching Site'
-    return render_template('pitch.html', title=title, pitch_form=pitch_form)
+    title = 'New Pitch'
+    return render_template('pitch.html', title=title, pitch_form = pitch_form)
 
 @main.route('/comment/<int:id>', methods=['GET', 'POST'])
 @login_required
