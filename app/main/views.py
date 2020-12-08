@@ -94,6 +94,7 @@ def comment(id):
     pitch = Pitch.query.get(id)
     user = User.query.all()
     comments = Comment.query.filter_by(pitches_id=id).all()
+
     if form.validate_on_submit():
         comment = form.comment.data
         user_id = current_user._get_current_object().id
@@ -102,9 +103,11 @@ def comment(id):
             user_id=user_id,
             pitches_id=pitch.id
         )
+
         new_comment.save_comment()
         new_comments = [new_comment]
         print(new_comments)
+        
         return redirect(url_for('.index'))
     return render_template('comment.html', form=form, comments=comments, user=user)
 
