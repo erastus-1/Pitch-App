@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% import 'bootstrap/wtf.html' as wtf %} 
+
+{% block content %}
+
+    <div class="container card-content" style="
+    background-color: #2e21a1;">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="title"><strong>Welcome to Business Pitches.</strong>  </h1>
+        </div>
+        <div class="col-md-12">
+          <div class="card-body">
+            <a href="{{ url_for('main.pitch') }}">
+              <button class="btn btn-success">Create a pitch</button>
+            </a>
+            <hr class="mt-5" />
+            <div class="card-body card-content-1">
+              {% for pitch in pitches %}
+              <div class="content mt-4">
+                {% if current_user.profile_pic_path %}
+                <img
+                  src="{{url_for('static',filename=current_user.profile_pic_path)}}"
+                  alt=""
+                  class="img-thumbnail img-front"
+                />
+                {% endif %}
+                <h5>{{ current_user.username }}</h5>
+              </div>
+              <div class="body-content mt-3">
+                <h4>{{pitch.title}}</h4>
+                <h5 class="subtitle">{{pitch.description}}</h5>
+                <h6 class="subtitle">{{pitch.category }}</h6>
+                <p class="date text-muted">
+                  Posted on ~ {{pitch.date.strftime('%Y-%m-%d')}}
+                </p>
+    
+                <hr />
+                <a
+                  href="{{ url_for('main.comment', id=pitch.id) }}"
+                  class="btn btn-sm btn-dark"
+                  ><i class="fa fa-comment"></i> comment</a
+                >
+               
+                {% if current_user.is_authenticated %} {% if
+                current_user.has_liked_post(pitch) %}
+                <a
+                  href="{{ url_for('main.like_action', post_id=pitch.id, action='unlike') }}"
+                  class="btn btn-sm btn-success"
+                  ><i class="fa fa-thumbs-down"></i
+                ></a>
+                {% else %}
+                <a
+                  href="{{ url_for('main.like_action', post_id=pitch.id, action='like') }}"
+                  class="btn btn-sm btn-success"
+                  ><i class="fa fa-thumbs-up"></i
+                ></a>
+                {% endif %} {{ pitch.likes.count() }} likes {% else %} {{
+                pitch.likes.count() }} likes {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {% endblock %}
