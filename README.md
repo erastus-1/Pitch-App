@@ -1,4 +1,4 @@
-## **PITCHES**
+## **PITCH APP**
 
 ### **DESCRIPTION**
 
@@ -11,21 +11,21 @@ In life, you only have 60 seconds to impress someone. 1 minute can make or break
 #### **FEATURES**
 
 
-create account
+1. create account
 
-Sign in.
+2. Sign in.
 
-Sees profile after signing in.
+3. Sees profile after signing in.
 
-Add a pitch based on category
+4. Add a pitch based on category
 
-Upvote or downvote a pitch
+5. Upvote or downvote a pitch
 
-Comment on a pitch
+6. Comment on a pitch
 
-See comments posted on each individual pitch
+7. See comments posted on each individual pitch
 
-Edit your profile i.e will be able to add a short bio about yourself and a profile picture
+8. Edit your profile i.e will be able to add a short bio about yourself and a profile picture
 
 ##### **PREREQUISITES**
 
@@ -37,7 +37,7 @@ pip
 
 ##### **CLONING**
 
-git clone *https://github.com/erastus-1/Pitches*
+git clone *https://github.com/erastus-1/Pitch-App*
 
 cd Pitches
 
