@@ -3,7 +3,7 @@ import os
 class Config:
 
     SECRET_KEY = 'erass'
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://erastus:Angular2020@localhost/last1'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://erastus:Angular2020@localhost/last1'
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
 
     #  email configurations
